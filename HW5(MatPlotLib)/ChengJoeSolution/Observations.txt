@@ -1,0 +1,5 @@
+-Rural areas have signifcantly less drivers and riders
+-Urban areas have signifcantly more drivers and riders
+-Rural fares are much higher than the regular fares in urban areas. Could be allocated to distance travelled.
+-While the driver count is much higher in Urban areas; the average fare price is lower than average compared to suburban and rural areas
+-Next step should be exploring the variable of distance travelled to get a more insightful analysis.
