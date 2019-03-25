@@ -32,11 +32,13 @@ WHERE country IN
 
 # 3a. You want to keep a description of each actor. You don't think you will be performing queries on a description, so create a column in the table `actor` named `description` and use the data type `BLOB` (Make sure to research the type `BLOB`, as the difference between it and `VARCHAR` are significant).
 ALTER TABLE actor
-ADD COLUMN middle_name VARCHAR(25) AFTER first_name;
+ADD COLUMN description VARCHAR(25) AFTER first_name;
+ALTER TABLE actor
+MODIFY COLUMN description BLOB;
 
 # 3b. Very quickly you realize that entering descriptions for each actor is too much effort. Delete the `description` column.
 ALTER TABLE actor
-MODIFY COLUMN middle_name BLOB;
+DROP COLUMN description;
 
 # 4a. List the last names of actors, as well as how many actors have that last name.
 SELECT last_name, COUNT(*) AS 'Number of Actors' 
@@ -54,7 +56,7 @@ WHERE First_name = "Groucho" AND last_name = "Williams";
 # 4d. Perhaps we were too hasty in changing `GROUCHO` to `HARPO`. It turns out that `GROUCHO` was the correct name after all! In a single query, if the first name of the actor is currently `HARPO`, change it to `GROUCHO`.
 UPDATE actor 
 SET first_name = 'GROUCHO'
-WHERE actor_id = 172;
+WHERE First_name = "HARPO";
 
 # 5a. You cannot locate the schema of the `address` table. Which query would you use to re-create it?
 #Hint: [https://dev.mysql.com/doc/refman/5.7/en/show-create-table.html](https://dev.mysql.com/doc/refman/5.7/en/show-create-table.html)
